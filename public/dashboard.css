@@ -1,0 +1,181 @@
+/* dashboard.css */
+
+/* Fallback de fuente si Inter no está disponible localmente (también definido en HTML) */
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Estilos para las pestañas de navegación */
+.tab-button {
+    padding: 12px 24px;
+    border-radius: 8px; /* Bordes redondeados en todas las esquinas */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin: 0 4px; /* Pequeño espacio entre botones */
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+    color: #000;
+    border-color: rgba(0, 255, 136, 0.6);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3); /* Brillo para la pestaña activa */
+}
+
+.tab-button:not(.active) {
+    background: rgba(30, 30, 30, 0.5);
+    color: #a0a0a0;
+    border-color: rgba(0, 255, 136, 0.2);
+}
+
+.tab-button:not(.active):hover {
+    background: rgba(40, 40, 40, 0.7);
+    color: #00ff88;
+    border-color: rgba(0, 255, 136, 0.4);
+}
+
+/* Contenido de la pestaña (inicialmente oculto o activo) */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Estilos específicos para el calendario */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px; /* Espaciado más compacto */
+}
+
+.calendar-day {
+    aspect-ratio: 1; /* Mantiene una relación de aspecto cuadrada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    min-height: 50px; /* Asegura un tamaño mínimo para los días */
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(0, 255, 136, 0.15);
+    color: #e0e0e0;
+}
+
+.calendar-day:hover {
+    background-color: rgba(0, 255, 136, 0.2);
+    transform: scale(1.03); /* Ligero efecto de zoom */
+    border-color: rgba(0, 255, 136, 0.5);
+}
+
+.calendar-day.current-month {
+    color: #e0e0e0;
+}
+
+.calendar-day.other-month {
+    color: #6b7280;
+    background: rgba(20, 20, 20, 0.3);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.calendar-day.today {
+    background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+    border-color: #00ccff;
+}
+
+.calendar-day.has-event::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    background: #ff0080; /* Punto rojo/rosa para eventos */
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 0, 128, 0.8);
+}
+
+.calendar-day.selected {
+    background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+    border-color: #00ff88;
+}
+
+/* Estilos para elementos de lista de archivos y eventos */
+.file-item, .event-item {
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.file-item:hover {
+    border-color: rgba(0, 255, 136, 0.6);
+    background: rgba(40, 40, 40, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 255, 136, 0.2);
+}
+
+.event-item {
+    border-left: 4px solid #00ff88; /* Barra lateral para eventos */
+}
+
+.event-item:hover {
+    background: rgba(40, 40, 40, 0.9);
+    border-left-color: #00ccff; /* Cambio de color en hover */
+    box-shadow: 0 8px 16px rgba(0, 255, 136, 0.2);
+}
+
+/* Estilos de mensaje (éxito/error) - se mantienen en global-tech.css preferentemente */
+/* Pero aquí se incluyen para asegurar la coherencia si global-tech.css no es suficiente */
+.message-success {
+    background: rgba(0, 255, 136, 0.2);
+    border: 1px solid #00ff88;
+    color: #00ff88;
+}
+
+.message-error {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid #ff4444;
+    color: #ff4444;
+}
+
+/* Estilo para la scrollbar personalizada (ya estaba, se mantiene) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #00ff88;
+    border-radius: 10px;
+    border: 2px solid #222;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00ccff;
+}
+
+/* Ajustes a los botones del modal de archivo para que sean más grandes y visibles */
+#fileModal .modal-button, #fileModal .tech-button-outline {
+    flex: 1 1 auto; /* Permite que los botones se expandan y envuelvan */
+    min-width: 120px; /* Ancho mínimo para cada botón */
+}

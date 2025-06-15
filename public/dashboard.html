@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - UniSync</title>
+    <!-- Carga Tailwind CSS localmente -->
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <!-- Carga el nuevo CSS de estilos globales -->
+    <link rel="stylesheet" href="css/global-tech.css">
+    <link rel="stylesheet" href="dashboard.css"> <!-- Para estilos específicos del dashboard -->
+    <!-- Las fuentes se manejan ahora localmente o por sistema -->
+    <style>
+        /* Fallback para la fuente si Inter no está disponible localmente */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+    </style>
+</head>
+<body class="grid-pattern">
+    <nav class="nav-tech shadow-2xl p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="dashboard.html" class="text-3xl font-bold text-cyber flex items-center glitch-text">
+                <span class="mr-2">⚡</span>UniSync
+            </a>
+            <div class="space-x-4 flex items-center">
+                <span class="nav-link" id="userNameDisplay">¡Hola, Usuario!</span>
+                <a href="settings.html" class="nav-link px-3 py-2">
+                    ⚙️ CONFIGURACIÓN
+                </a>
+                <button id="logoutButton" class="tech-button-outline px-4 py-2">
+                    CERRAR SESIÓN
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-4 relative z-10">
+        <h1 class="text-4xl font-black text-center mb-8 text-cyber glitch-text">
+            PANEL DE CONTROL
+        </h1>
+
+        <!-- Navegación por Pestañas -->
+        <div class="flex justify-center mb-8">
+            <div class="flex bg-gray-900 rounded-lg p-1 border border-gray-700">
+                <button id="filesTab" class="tab-button active">
+                    📂 Archivos
+                </button>
+                <button id="calendarTab" class="tab-button">
+                    📅 Calendario
+                </button>
+            </div>
+        </div>
+
+        <!-- Contenido de la Pestaña de Archivos -->
+        <div id="filesContent" class="tab-content active">
+            <div class="cyber-card p-8 rounded-xl shadow-lg neon-glow h-full flex flex-col">
+                <h2 class="text-3xl font-bold mb-6 text-white flex items-center justify-center">
+                    <span class="text-3xl mr-3">📂</span> GESTIÓN DE ARCHIVOS
+                </h2>
+                
+                <!-- Sección de Subida de Archivos -->
+                <div class="mb-8 p-6 bg-gray-800 rounded-lg border border-gray-700">
+                    <h3 class="text-xl font-bold mb-4 text-green-400">SUBIR NUEVO ARCHIVO</h3>
+                    <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3">
+                        <input type="file" id="fileInput" 
+                               class="tech-input block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-700 file:text-green-400 hover:file:bg-gray-600 cursor-pointer"
+                               accept=".pdf,.doc,.docx,.txt,.ppt,.pptx,.xls,.xlsx,.zip">
+                        <button id="uploadButton" class="tech-button px-6 py-2 whitespace-nowrap w-full sm:w-auto">
+                            Subir Archivo
+                        </button>
+                    </div>
+                    <div id="uploadStatus" class="mt-3 p-3 text-sm text-center rounded-lg hidden"></div>
+                </div>
+
+                <!-- Lista de Archivos Subidos -->
+                <div class="p-6 bg-gray-800 rounded-lg border border-gray-700 flex-grow">
+                    <h3 class="text-xl font-bold mb-4 text-green-400">TUS ARCHIVOS</h3>
+                    <div id="fileList" class="space-y-3 max-h-96 overflow-y-auto custom-scrollbar pr-2">
+                        <div class="file-item p-4 rounded-lg text-gray-400 text-center">
+                            No hay archivos subidos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido de la Pestaña de Calendario -->
+        <div id="calendarContent" class="tab-content">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Sección del Calendario -->
+                <div class="lg:col-span-2 cyber-card p-8 rounded-xl shadow-lg neon-glow">
+                    <h2 class="text-3xl font-bold mb-6 text-white flex items-center justify-center">
+                        <span class="text-3xl mr-3">📅</span> CALENDARIO DE EVENTOS
+                    </h2>
+
+                    <!-- Controles del Calendario -->
+                    <div class="flex justify-between items-center mb-6">
+                        <button id="prevMonth" class="tech-button-outline px-4 py-2">
+                            ← Anterior
+                        </button>
+                        <h3 id="currentMonthYear" class="text-2xl font-bold text-cyber glitch-text text-center flex-1 mx-2"></h3>
+                        <button id="nextMonth" class="tech-button-outline px-4 py-2">
+                            Siguiente →
+                        </button>
+                    </div>
+
+                    <!-- Días de la semana -->
+                    <div class="calendar-grid mb-4 text-center font-bold text-green-400">
+                        <div class="p-2">DOM</div>
+                        <div class="p-2">LUN</div>
+                        <div class="p-2">MAR</div>
+                        <div class="p-2">MIÉ</div>
+                        <div class="p-2">JUE</div>
+                        <div class="p-2">VIE</div>
+                        <div class="p-2">SÁB</div>
+                    </div>
+
+                    <!-- Días del calendario: Aquí se generará la cuadrícula interactiva -->
+                    <div id="calendarDays" class="calendar-grid"></div>
+                </div>
+
+                <!-- Panel de Eventos para el Día Seleccionado -->
+                <div class="cyber-card p-6 rounded-xl shadow-lg neon-glow flex flex-col">
+                    <h3 class="text-xl font-bold mb-4 text-white flex items-center">
+                        <span class="mr-2">📋</span> EVENTOS DEL DÍA
+                    </h3>
+                    
+                    <button id="addEventButton" class="tech-button w-full py-3 mb-6">
+                        + Añadir Nuevo Evento
+                    </button>
+
+                    <div id="eventList" class="space-y-3 max-h-96 overflow-y-auto custom-scrollbar pr-2 flex-grow">
+                        <p class="text-gray-400 text-center py-8">
+                            Selecciona un día en el calendario para ver sus eventos o añadir uno nuevo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="messageBox" class="mt-8 p-3 text-sm text-center rounded-lg hidden"></div>
+    </main>
+
+    <footer class="footer-tech text-gray-400 py-6 text-center mt-8">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 UniSync. SISTEMA ACADÉMICO AVANZADO.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para Añadir/Editar Evento -->
+    <div id="eventModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center hidden z-50 px-4 py-8">
+        <div class="cyber-card p-8 rounded-xl shadow-2xl w-full max-w-md neon-glow">
+            <h2 id="eventModalTitle" class="text-2xl font-bold mb-6 text-cyber text-center">AÑADIR EVENTO</h2>
+            <form id="eventForm" class="space-y-4">
+                <div>
+                    <label for="eventTitle" class="tech-label">TÍTULO DEL EVENTO</label>
+                    <input type="text" id="eventTitle" required class="tech-input">
+                </div>
+                <div>
+                    <label for="eventDate" class="tech-label">FECHA</label>
+                    <input type="date" id="eventDate" required class="tech-input">
+                </div>
+                <div>
+                    <label for="eventDescription" class="tech-label">DESCRIPCIÓN (OPCIONAL)</label>
+                    <textarea id="eventDescription" rows="3" class="tech-input"></textarea>
+                </div>
+                <div class="flex space-x-3">
+                    <button type="submit" id="saveEventButton" class="tech-button flex-1 py-2">
+                        GUARDAR
+                    </button>
+                    <button type="button" id="cancelEventButton" class="tech-button-outline flex-1 py-2">
+                        CANCELAR
+                    </button>
+                </div>
+            </form>
+            <div id="eventModalMessageBox" class="mt-4 p-3 text-sm text-center rounded-lg hidden"></div>
+        </div>
+    </div>
+
+    <!-- Modal para Ver/Editar/Eliminar Archivo -->
+    <div id="fileModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center hidden z-50 px-4 py-8">
+        <div class="cyber-card p-8 rounded-xl shadow-2xl w-full max-w-md neon-glow">
+            <h2 id="fileModalTitle" class="text-2xl font-bold mb-6 text-cyber text-center">DETALLES DEL ARCHIVO</h2>
+            <div id="fileModalContent" class="mb-6 p-4 bg-gray-800 rounded-lg max-h-60 overflow-y-auto custom-scrollbar">
+                <!-- Contenido del archivo o mensaje de previsualización -->
+            </div>
+            <form id="editFileForm" class="space-y-4 hidden">
+                <div>
+                    <label for="editFileName" class="tech-label">NOMBRE DEL ARCHIVO</label>
+                    <input type="text" id="editFileName" class="tech-input">
+                </div>
+                <div>
+                    <label for="editFileDescription" class="tech-label">DESCRIPCIÓN (OPCIONAL)</label>
+                    <textarea id="editFileDescription" rows="3" class="tech-input"></textarea>
+                </div>
+                <button type="submit" class="tech-button w-full py-2 px-4 mt-4">GUARDAR CAMBIOS</button>
+            </form>
+            <div class="flex flex-wrap justify-center gap-2 mt-6">
+                <button id="viewFileButton" class="tech-button-outline px-4 py-2 text-sm">VER</button>
+                <button id="editMetadataButton" class="tech-button-outline px-4 py-2 text-sm">EDITAR METADATOS</button>
+                <button id="deleteFileButton" class="tech-button-outline px-4 py-2 text-sm border-red-500 text-red-400 hover:bg-red-500 hover:text-white">ELIMINAR</button>
+                <button id="closeFileModalButton" class="tech-button-outline px-4 py-2 text-sm">CERRAR</button>
+            </div>
+            <div id="fileModalMessageBox" class="mt-4 p-3 text-sm text-center rounded-lg hidden"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación Genérico -->
+    <div id="confirmationModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center hidden z-50 px-4 py-8">
+        <div class="cyber-card p-8 rounded-xl shadow-2xl w-full max-w-sm text-center neon-glow">
+            <p id="confirmationMessage" class="text-lg font-bold text-white mb-6">¿Estás seguro?</p>
+            <div class="flex justify-center space-x-4">
+                <button id="confirmYes" class="tech-button px-6 py-2">SÍ</button>
+                <button id="confirmNo" class="tech-button-outline px-6 py-2">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="dashboard.js"></script>
+</body>
+</html>

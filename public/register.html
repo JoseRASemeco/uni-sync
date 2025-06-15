@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - UniSync</title>
+    <!-- Carga Tailwind CSS localmente -->
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <!-- Carga el nuevo CSS de estilos globales -->
+    <link rel="stylesheet" href="css/global-tech.css">
+    <link rel="stylesheet" href="auth.css"> <!-- Para estilos específicos si los hubiera -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-container grid-pattern">
+    <div class="flex items-center justify-center min-h-screen px-6 relative z-10">
+        <div class="cyber-card p-10 w-full max-w-md neon-glow">
+            <div class="text-center mb-8">
+                <div class="loading-bar"></div>
+                <div class="status-indicator justify-center text-gray-400">
+                    <span class="status-dot"></span>
+                    REGISTRO DE USUARIO SEGURO
+                </div>
+                <h2 class="text-4xl font-black mb-4 text-white">
+                    CREAR
+                    <span class="text-cyber glitch-text block">CUENTA</span>
+                </h2>
+            </div>
+            <form id="registerForm" class="space-y-6">
+                <div>
+                    <label for="username" class="tech-label">NOMBRE DE USUARIO</label>
+                    <input type="text" id="username" name="username" required
+                           placeholder="usuario_uni"
+                           class="tech-input">
+                </div>
+                <div>
+                    <label for="email" class="tech-label">CORREO ELECTRÓNICO</label>
+                    <input type="email" id="email" name="email" required
+                           placeholder="tu@ejemplo.com"
+                           class="tech-input">
+                </div>
+                <div>
+                    <label for="password" class="tech-label">CÓDIGO DE ACCESO</label>
+                    <input type="password" id="password" name="password" required
+                           placeholder="••••••••••••"
+                           class="tech-input">
+                </div>
+                <div>
+                    <label for="confirmPassword" class="tech-label">CONFIRMAR CÓDIGO</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required
+                           placeholder="••••••••••••"
+                           class="tech-input">
+                </div>
+                <button type="submit" class="tech-button text-lg py-4">
+                    REGISTRAR CUENTA
+                </button>
+            </form>
+            
+            <div class="mt-8 text-center space-y-4">
+                <p class="text-gray-400 text-sm">
+                    ¿YA TIENES ACCESO?
+                </p>
+                <a href="login.html" class="nav-link">
+                    INICIAR SESIÓN AQUÍ
+                </a>
+            </div>
+            
+            <div id="messageBox" class="mt-6 p-4 text-sm text-center rounded-lg hidden" role="alert"></div>
+
+            <div class="mt-8 pt-6 border-t border-gray-700 text-center">
+                <a href="index.htm" class="nav-link text-xs">
+                    ← VOLVER AL SISTEMA PRINCIPAL
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carga el script de autenticación local -->
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

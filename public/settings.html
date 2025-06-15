@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Usuario - UniSync</title>
+    <!-- Carga Tailwind CSS localmente -->
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <!-- Carga el nuevo CSS de estilos globales -->
+    <link rel="stylesheet" href="css/global-tech.css">
+    <link rel="stylesheet" href="settings.css"> <!-- Para estilos específicos si los hubiera -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="grid-pattern">
+    <nav class="nav-tech shadow-2xl p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="dashboard.html" class="text-3xl font-bold text-cyber flex items-center glitch-text">
+                <span class="mr-2">⚡</span>UniSync
+            </a>
+            <div class="space-x-4 flex items-center">
+                <a href="dashboard.html" class="nav-link px-3 py-2">
+                    📊 DASHBOARD
+                </a>
+                <button id="logoutButton" class="tech-button-outline px-4 py-2">
+                    CERRAR SESIÓN
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-4 relative z-10">
+        <div class="max-w-3xl mx-auto cyber-card p-8 rounded-xl shadow-lg neon-glow">
+            <h2 class="text-3xl font-black text-center mb-8 text-cyber glitch-text">
+                CONFIGURACIÓN DE USUARIO
+            </h2>
+
+            <div id="loadingMessage" class="text-center text-gray-400 mb-4">CARGANDO PERFIL...</div>
+            <div id="errorMessage" class="text-center text-red-500 mb-4 hidden"></div>
+
+            <form id="profileForm" class="space-y-6 hidden">
+                <div>
+                    <label for="username" class="tech-label">NOMBRE DE USUARIO</label>
+                    <input type="text" id="username" name="username" required
+                           class="tech-input">
+                </div>
+                <div>
+                    <label for="email" class="tech-label">CORREO ELECTRÓNICO</label>
+                    <input type="email" id="email" name="email" required
+                           class="tech-input">
+                </div>
+                
+                <button type="submit"
+                        class="tech-button w-full py-3 px-4">
+                    ACTUALIZAR PERFIL
+                </button>
+            </form>
+
+            <div class="mt-8 pt-6 border-t border-gray-700">
+                <h3 class="text-xl font-bold mb-4 text-white">CAMBIAR CÓDIGO DE ACCESO</h3>
+                <p class="text-gray-400 mb-4">
+                    Para cambiar tu código de acceso, ingresa tu código actual y el nuevo código.
+                </p>
+                <form id="changePasswordForm" class="space-y-4">
+                    <div>
+                        <label for="currentPassword" class="tech-label">CÓDIGO ACTUAL</label>
+                        <input type="password" id="currentPassword" name="currentPassword" required
+                               class="tech-input">
+                    </div>
+                    <div>
+                        <label for="newPassword" class="tech-label">NUEVO CÓDIGO</label>
+                        <input type="password" id="newPassword" name="newPassword" required
+                               class="tech-input">
+                    </div>
+                    <div>
+                        <label for="confirmNewPassword" class="tech-label">CONFIRMAR NUEVO CÓDIGO</label>
+                        <input type="password" id="confirmNewPassword" name="confirmNewPassword" required
+                               class="tech-input">
+                    </div>
+                    <button type="submit"
+                            class="tech-button w-full py-3 px-4">
+                        CAMBIAR CÓDIGO
+                    </button>
+                </form>
+                <div id="passwordResetMessage" class="mt-4 p-3 text-sm text-center rounded-lg hidden" role="alert"></div>
+            </div>
+
+            <div id="messageBox" class="mt-4 p-3 text-sm text-center rounded-lg hidden" role="alert"></div>
+        </div>
+    </main>
+
+    <footer class="footer-tech text-gray-400 py-6 text-center mt-8">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 UniSync. SISTEMA ACADÉMICO AVANZADO.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="settings.js"></script>
+</body>
+</html>

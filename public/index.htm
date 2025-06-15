@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniSync - Tu Plataforma de Gestión de Proyectos Universitarios</title>
+    <!-- Carga Tailwind CSS localmente -->
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <!-- Carga el nuevo CSS de estilos globales -->
+    <link rel="stylesheet" href="css/global-tech.css">
+    <link rel="stylesheet" href="home.css"> <!-- Para estilos específicos si los hubiera -->
+    <style>
+        /* Fallback para la fuente si Inter no está disponible localmente */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background: #0a0a0a; /* Fondo oscuro consistente */
+            color: #ffffff; /* Color de texto predeterminado */
+            overflow-x: hidden; /* Evita scroll horizontal */
+        }
+    </style>
+</head>
+<body class="grid-pattern">
+    <nav class="nav-tech shadow-2xl p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.htm" class="text-3xl font-bold text-cyber flex items-center glitch-text">
+                <span class="mr-2">⚡</span>UniSync
+            </a>
+            <div class="space-x-4 flex items-center">
+                <a href="#features" class="nav-link px-4 py-2">CONÓCENOS</a>
+                <a href="login.html" class="nav-link px-4 py-2">INICIAR SESIÓN</a>
+                <a href="register.html" class="tech-button-outline px-4 py-2">REGISTRARSE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Nueva Sección Principal (Más compacta y directa) -->
+    <section class="py-20 text-center relative overflow-hidden bg-gradient-to-br from-gray-900 to-black rounded-b-xl shadow-2xl">
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-6xl md:text-7xl font-black text-white mb-6 leading-tight glitch-text animate-pulse-slow">
+                <span class="text-cyber">OPTIMIZA</span> TU PROGRESO<br>ACADÉMICO
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto">
+                La plataforma inteligente para gestionar tus proyectos universitarios, colaborar en equipo y planificar tu éxito.
+            </p>
+            <a href="register.html" class="tech-button text-lg px-8 py-4 pulse-glow">
+                ¡EMPIEZA GRATIS HOY!
+            </a>
+        </div>
+        <div class="absolute inset-0 bg-opacity-10 backdrop-blur-sm pointer-events-none"></div>
+    </section>
+
+    <!-- Sección de Características (Objetivo del enlace "Conócenos") -->
+    <section id="features" class="py-16 bg-gray-900 text-white rounded-xl shadow-lg mx-4 mt-8 neon-border">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-cyber glitch-text">
+                CARACTERÍSTICAS CLAVE
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="cyber-card p-6 rounded-lg text-center neon-glow-sm flex flex-col items-center">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-3 text-green-400">GESTIÓN DE PROYECTOS</h3>
+                    <p class="text-gray-400">
+                        Organiza tareas, asigna roles, establece hitos y supervisa el progreso de tus proyectos con facilidad.
+                    </p>
+                </div>
+                <div class="cyber-card p-6 rounded-lg text-center neon-glow-sm flex flex-col items-center">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-3 text-cyan-400">COLABORACIÓN EN TIEMPO REAL</h3>
+                    <p class="text-gray-400">
+                        Trabaja en equipo sin fricciones, comparte archivos y comunica ideas al instante con tus compañeros.
+                    </p>
+                </div>
+                <div class="cyber-card p-6 rounded-lg text-center neon-glow-sm flex flex-col items-center">
+                    <div class="text-5xl mb-4">⏰</div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-400">CALENDARIO INTUITIVO</h3>
+                    <p class="text-gray-400">
+                        Planifica tus tareas, establece fechas límite y visualiza tu progreso con nuestro calendario intuitivo.
+                    </p>
+                </div>
+                <div class="cyber-card p-6 rounded-lg text-center neon-glow-sm flex flex-col items-center">
+                    <div class="text-5xl mb-4">📂</div>
+                    <h3 class="text-xl font-bold mb-3 text-red-400">ALMACENAMIENTO SEGURO</h3>
+                    <p class="text-gray-400">
+                        Guarda y accede a todos tus documentos y recursos importantes de forma segura en la nube.
+                    </p>
+                </div>
+                <div class="cyber-card p-6 rounded-lg text-center neon-glow-sm flex flex-col items-center">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">RENDIMIENTO OPTIMIZADO</h3>
+                    <p class="text-gray-400">
+                        Diseñado para la velocidad y la eficiencia, UniSync te ayuda a maximizar tu productividad.
+                    </p>
+                </div>
+                <div class="cyber-card p-6 rounded-lg text-center neon-glow-sm flex flex-col items-center">
+                    <div class="text-5xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-400">SEGURIDAD AVANZADA</h3>
+                    <p class="text-gray-400">
+                        Protege tu información con protocolos de seguridad de última generación y autenticación robusta.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Llamada a la Acción Final -->
+    <section class="py-16 text-center mt-8 neon-border rounded-xl shadow-2xl bg-gradient-to-br from-blue-900 to-purple-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-4 text-white glitch-text">
+                ¿LISTO PARA TRANSFORMAR TU EXPERIENCIA UNIVERSITARIA?
+            </h2>
+            <p class="text-xl mb-8 text-gray-300">
+                Únete a miles de estudiantes que ya están mejorando su productividad con UniSync.
+            </p>
+            <a href="register.html" class="tech-button px-8 py-4 text-lg font-semibold pulse-glow">
+                ¡REGÍSTRATE HOY!
+            </a>
+            <div class="mt-8 flex justify-center text-gray-500 text-sm tracking-wider uppercase font-semibold">
+                <span class="mr-3 text-green-400">●</span> ACCESO INSTANTÁNEO
+                <span class="mx-4">|</span>
+                <span class="mr-3 text-green-400">●</span> CONFIGURACIÓN AUTOMÁTICA
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-tech text-gray-400 py-16 text-center">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="text-3xl font-black text-cyber mb-3 flex items-center justify-center md:justify-start">
+                        <span class="mr-2">⚡</span>UniSync
+                    </div>
+                    <p class="text-gray-500 uppercase tracking-wider text-sm">SISTEMA ACADÉMICO AVANZADO © 2025</p>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
+                    <div class="flex space-x-8">
+                        <a href="#" class="nav-link uppercase tracking-wide text-sm">PRIVACIDAD</a>
+                        <a href="#" class="nav-link uppercase tracking-wide text-sm">TÉRMINOS</a>
+                        <a href="#" class="nav-link uppercase tracking-wide text-sm">CONTACTO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carga el script de inicio local -->
+    <script src="home.js"></script>
+</body>
+</html>

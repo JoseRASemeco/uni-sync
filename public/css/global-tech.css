@@ -1,0 +1,434 @@
+/* public/css/global-tech.css */
+
+/* Estilos base para el cuerpo */
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden; /* Previene scroll horizontal indeseado */
+}
+
+/* Patrón de cuadrícula para el fondo */
+.grid-pattern {
+    background-image:
+        linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Contenedores con borde de neón y brillo (para tarjetas principales) */
+.neon-border {
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #00ff88, #00ccff, #ff0080) 1;
+    border-radius: 12px;
+    position: relative;
+}
+
+.neon-glow {
+    box-shadow:
+        0 0 20px rgba(0, 255, 136, 0.3),
+        0 0 40px rgba(0, 204, 255, 0.2),
+        0 0 60px rgba(255, 0, 128, 0.1);
+}
+
+/* Tarjetas con estilo ciberpunk */
+.cyber-card {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(30, 30, 30, 0.9) 100%);
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(20px);
+}
+
+.cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.cyber-card:hover::before {
+    left: 100%;
+}
+
+.cyber-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    border-color: rgba(0, 255, 136, 0.7);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(0, 255, 136, 0.4);
+}
+
+/* Botones principales con estilo tech */
+.tech-button {
+    background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+    color: #000;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%; /* Por defecto, que ocupe todo el ancho de su contenedor */
+    text-align: center;
+    cursor: pointer;
+}
+
+.tech-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.3s;
+}
+
+.tech-button:hover::before {
+    left: 100%;
+}
+
+.tech-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.5);
+}
+
+/* Botones con solo borde tech (outline) */
+.tech-button-outline {
+    background: transparent;
+    color: #00ff88;
+    padding: 14px 32px;
+    border: 2px solid #00ff88;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.tech-button-outline:hover {
+    background: #00ff88;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Campos de entrada con estilo tech */
+.tech-input {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 12px 16px;
+    width: 100%;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tech-input:focus {
+    outline: none;
+    border-color: rgba(0, 255, 136, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    background: rgba(25, 25, 25, 0.9);
+}
+
+.tech-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Etiquetas de formulario con estilo tech */
+.tech-label {
+    color: rgba(0, 255, 136, 0.9);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Texto con gradiente y animación de brillo */
+.text-cyber {
+    background: linear-gradient(135deg, #00ff88 0%, #00ccff 50%, #ff0080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: text-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.2); }
+}
+
+/* Efecto glitch para texto */
+.glitch-text {
+    position: relative;
+    animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+    0%, 100% { text-shadow: 0 0 5px rgba(0, 255, 136, 0.5); }
+    25% { text-shadow: -2px 0 5px rgba(255, 0, 128, 0.5); }
+    50% { text-shadow: 2px 0 5px rgba(0, 204, 255, 0.5); }
+    75% { text-shadow: -1px 0 5px rgba(0, 255, 136, 0.5); }
+}
+
+/* Barra de carga animada */
+.loading-bar {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #00ff88, #00ccff);
+    border-radius: 2px;
+    margin: 0 auto 1.5rem; /* Ajuste para el margen */
+    animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.5); }
+}
+
+/* Indicador de estado (punto animado) */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ff88;
+    margin-right: 0.5rem;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Estilo para iconos con gradiente (usado en secciones de módulos) */
+.icon-tech {
+    font-size: 4rem;
+    background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    animation: float-tech 3s ease-in-out infinite;
+}
+
+@keyframes float-tech {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Estilos específicos para la navegación */
+.nav-tech {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.nav-link {
+    color: rgba(0, 255, 136, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.nav-link:hover {
+    color: #00ff88;
+    border-bottom-color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* Estilos específicos para el encabezado (hero) */
+.hero-tech {
+    background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-tech::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(0, 204, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+    animation: pulse-bg 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-bg {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.6; }
+}
+
+/* Estilos para secciones de contenido */
+.section-tech {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.9) 0%, rgba(20, 20, 20, 0.8) 100%);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 20px;
+    margin: 2rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilos para la sección de CTA (Llamada a la Acción) */
+.cta-tech {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #00ff88, #00ccff, #ff0080) 1;
+    border-radius: 20px;
+    margin: 2rem 1rem;
+    position: relative;
+}
+
+/* Estilos para el pie de página */
+.footer-tech {
+    background: #050505;
+    border-top: 1px solid rgba(0, 255, 136, 0.3);
+    margin-top: 2rem;
+}
+
+/* Estilos para el contenedor de autenticación (login/registro) */
+.auth-container {
+    background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(0, 204, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+    animation: pulse-bg 4s ease-in-out infinite alternate;
+}
+
+/* Estilos para mensajes de éxito y error */
+.message-success {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    color: #00ff88;
+}
+
+.message-error {
+    background: rgba(255, 0, 128, 0.1);
+    border: 1px solid rgba(255, 0, 128, 0.3);
+    color: #ff0080;
+}
+
+/* Estilos de botones para modales (ajuste para el nuevo tema) */
+.modal-button {
+    background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.modal-button.cancel {
+    background: rgba(40, 40, 40, 0.8);
+    color: #00ff88;
+    border: 1px solid #00ff88;
+}
+
+.modal-button.cancel:hover {
+    background: #00ff88;
+    color: #000;
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.modal-button.delete {
+    background: #ff0080;
+    color: #fff;
+}
+
+.modal-button.delete:hover {
+    background: #cc0066;
+    box-shadow: 0 5px 15px rgba(255, 0, 128, 0.3);
+}
+
+/* Asegura que los días del calendario se vean bien */
+.calendar-container .day {
+    color: #ffffff; /* Ajustar color para el nuevo fondo oscuro */
+}
+
+.calendar-container .day.current-month {
+    color: #e0e0e0; /* Un gris más claro para el texto de los días del mes actual */
+}
+
+.calendar-container .day.other-month {
+    color: #6b7280; /* Un gris más oscuro para los días de otros meses */
+}
+
+.calendar-container .day:hover {
+    background-color: rgba(0, 255, 136, 0.2); /* Un brillo verde al pasar el ratón */
+}
+
+.calendar-container .day.today {
+    background-color: rgba(0, 204, 255, 0.2); /* Un azul para el día actual */
+    border: 2px solid #00ccff; /* Borde cian */
+}
+
+.calendar-container .day.has-event {
+    background-color: rgba(255, 0, 128, 0.2); /* Un rosa para los días con eventos */
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #ff0080;
+}
+
+.calendar-container .day.selected {
+    background-color: rgba(0, 255, 136, 0.5); /* Verde más intenso para el día seleccionado */
+    border: 2px solid #00ff88;
+}
+

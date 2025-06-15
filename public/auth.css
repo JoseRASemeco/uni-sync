@@ -1,0 +1,8 @@
+/* auth.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Los estilos para messageBox.success y messageBox.error se han movido a global-tech.css */
+/* No se necesitan estilos personalizados aquí a menos que haya overrides específicos */

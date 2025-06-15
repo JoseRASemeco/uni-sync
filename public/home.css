@@ -1,0 +1,8 @@
+/* home.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* No se necesitan muchos estilos personalizados si se usa Tailwind CSS y global-tech.css. */
+/* Este archivo puede usarse para ajustes finos o estilos no cubiertos por los anteriores. */

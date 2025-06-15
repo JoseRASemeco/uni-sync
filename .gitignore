@@ -1,0 +1,26 @@
+# Archivos y directorios de Node
+node_modules/
+.env
+
+# Archivos de la base de datos SQLite (si está en la carpeta de datos)
+data/
+*.db
+
+# Archivos de Firebase Admin SDK (¡CRÍTICO! NO SUBIR ESTO)
+firebase-admin.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de configuración de IDE (ej. VS Code)
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
